@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nigerian Price Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Nigerian Price Tracker</h1>
+
+        <section class="data-input">
+            <h2>Add New Price Data</h2>
+            <form id="priceForm">
+                <div class="form-group">
+                    <label for="productName">Product Name:</label>
+                    <input type="text" id="productName" required>
+                </div>
+                <div class="form-group">
+                    <label for="price">Price (₦):</label>
+                    <input type="number" id="price" required min="0">
+                </div>
+                <div class="form-group">
+                    <label for="marketLocation">Market Location:</label>
+                    <select id="marketLocation" required>
+                        <option value="">Select Market</option>
+                        <option value="Lagos">Lagos</option>
+                        <option value="Abuja">Abuja</option>
+                        <option value="Port Harcourt">Port Harcourt</option>
+                        <option value="Ibadan">Ibadan</option>
+                        <option value="Kano">Kano</option>
+                        <option value="Enugu">Enugu</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="category">Category:</label>
+                    <select id="category" required>
+                        <option value="">Select Category</option>
+                        <option value="Food">Food</option>
+                        <option value="Fuel">Fuel</option>
+                        <option value="Household">Household</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Clothing">Clothing</option>
+                        <option value="Services">Services</option>
+                        <option value="Transport">Transport</option>
+                    </select>
+                </div>
+                <button type="submit">Add Price</button>
+            </form>
+        </section>
+
+        <section class="comparison-table">
+            <h2>Price Comparison Table</h2>
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="filterCategory">Filter by Category:</label>
+                    <select id="filterCategory">
+                        <option value="">All Categories</option>
+                        <option value="Food">Food</option>
+                        <option value="Fuel">Fuel</option>
+                        <option value="Household">Household</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Clothing">Clothing</option>
+                        <option value="Services">Services</option>
+                        <option value="Transport">Transport</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="filterMarket">Filter by Market:</label>
+                    <select id="filterMarket">
+                        <option value="">All Markets</option>
+                        <option value="Lagos">Lagos</option>
+                        <option value="Abuja">Abuja</option>
+                        <option value="Port Harcourt">Port Harcourt</option>
+                        <option value="Ibadan">Ibadan</option>
+                        <option value="Kano">Kano</option>
+                        <option value="Enugu">Enugu</option>
+                    </select>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th data-sort="price">Price (₦)</th>
+                        <th data-sort="market">Market</th>
+                        <th>Category</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody id="priceTableBody">
+                    <!-- Table rows will be added here by JavaScript -->
+                </tbody>
+            </table>
+        </section>
+
+        <section class="charts-dashboard">
+            <h2>Data Visualizations</h2>
+            <div class="chart-container">
+                <h3>Price Trend Over Time</h3>
+                 <div class="chart-filter">
+                    <label for="productTrendSelect">Select Product:</label>
+                    <select id="productTrendSelect">
+                        <option value="">Select a Product</option>
+                        <!-- Product options will be added here by JavaScript -->
+                    </select>
+                </div>
+                <canvas id="priceTrendChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>Average Price by Category</h3>
+                <canvas id="categoryAvgChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>Average Price by Market</h3>
+                <canvas id="marketAvgChart"></canvas>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</htmll>
